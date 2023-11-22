@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Centered Page with List of URLs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: rgb(255, 171, 0);
+        background: radial-gradient(circle, rgba(255, 171, 0, 0.41220238095238093) 0%, rgba(99, 24, 19, 0.30015756302521013) 100%);
+      }
+    </style>
+    <script>
+      window.setTimeout(function () {
+        window.location.reload();
+      }, 5000);
+    </script>
+  </head>
+
+  <body class="bg-slate-500 flex items-center">
+
+    <div class="flex h-screen items-center align-middle justify-center mx-auto min-w-0">
+      <div class="px-6 m-auto w-full bg-white shadow-lg rounded-xl md:mx-10 lg:max-w-[800px]">
+        <h1 class="text-5xl font-bold py-4">En Bouche</h1>
+
+        <p class="py-4">En Bouche est une application qui vise à promouvoir les recettes de nos ancêtres.</p>
+
+        <div class="flex justify-center">
+          <button onclick="location.href='mailto:enboucheapp@gmail.com';"
+            class="bg-orange-400 hover:bg-orange-700 text-white font-bold py-2 mb-10 px-4 rounded">
+            enboucheapp@gmail.com
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
