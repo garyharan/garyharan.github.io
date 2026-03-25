@@ -1,71 +1,249 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-  <head>
-    <title>Gary Haran - Programmer, Manager, Product Engineer, Growth Hacker</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body {
-        background: rgb(52,61,77);
-background: radial-gradient(circle, rgba(52,61,77,0.41220238095238093) 0%, rgba(19,60,99,0.30015756302521013) 100%);
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gary Haran — Product Engineer & Engineering Leader</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
 
-  <body class="bg-slate-500 flex items-center xl:scale-50">
+    .hero-bg {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0f172a 100%);
+    }
 
-    <div class="flex h-screen items-center align-middle justify-center mx-auto min-w-0">
-      <div class="px-6 m-auto w-full bg-white shadow-lg rounded-xl md:mx-10 lg:max-w-[800px]">
-        <div class="flex flex-wrap justify-center">
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
 
-          <div class="w-full flex justify-center">
-            <div class="relative">
-              <img src="gary_haran.jpg"
-                class="shadow-xl rounded-full align-middle border-none absolute -m-[220px] -ml-[150px] max-w-[300px]" />
-            </div>
-          </div>
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
 
-          <div class="w-full text-center mt-20">
-            <div class="flex justify-center lg:pt-4 pt-8 pb-0">
-              <div class="p-6 text-center">
-                <a href="https://www.linkedin.com/in/garyharan/" title="My LinkedIn profile" class="cursor-pointer">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 24 24" style="cursor: pointer;">
-                    <path
-                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
-                </a>
-              </div>
-              <div class="p-6 text-center">
-                <a href="https://www.github.com/garyharan/" title="My Github profile" class="cursor-pointer">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 24 24">
-                    <style> * { cursor: pointer; } </style>
-                    <path
-                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-4.466 19.59c-.405.078-.534-.171-.534-.384v-2.195c0-.747-.262-1.233-.55-1.481 1.782-.198 3.654-.875 3.654-3.947 0-.874-.312-1.588-.823-2.147.082-.202.356-1.016-.079-2.117 0 0-.671-.215-2.198.82-.64-.18-1.324-.267-2.004-.271-.68.003-1.364.091-2.003.269-1.528-1.035-2.2-.82-2.2-.82-.434 1.102-.16 1.915-.077 2.118-.512.56-.824 1.273-.824 2.147 0 3.064 1.867 3.751 3.645 3.954-.229.2-.436.552-.508 1.07-.457.204-1.614.557-2.328-.666 0 0-.423-.768-1.227-.825 0 0-.78-.01-.055.487 0 0 .525.246.889 1.17 0 0 .463 1.428 2.688.944v1.489c0 .211-.129.459-.528.385-3.18-1.057-5.472-4.056-5.472-7.59 0-4.419 3.582-8 8-8s8 3.581 8 8c0 3.533-2.289 6.531-5.466 7.59z" style="cursor: pointer;"/>
-                </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="text-center mt-2">
-          <h3 class="text-8xl text-slate-700 font-bold leading-normal mb-1">Gary Haran</h3>
-          <div class="text-4xl mt-0 mb-2 text-slate-400 font-bold uppercase">
-            <i class="fas fa-map-marker-alt mr-2 text-slate-400 opacity-75">Saint-Hubert, QC, Canada </i></div>
-        </div>
-        <div class="mt-6 py-6 border-t border-slate-200 text-center">
-          <div class="flex flex-wrap">
-            <div class="w-full px-4 text-5xl">
-              <p class="font-light leading-relaxed text-slate-600 my-8">
-                I spent 80% of my career in startups.  I love iterating quickly to find product/market fit. I love building a team who wants to change the world.
-              </p>
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-              <p class="font-light leading-relaxed text-slate-600 my-8">
-                My ideal next role would be to help a startup scale in a hybrid technical and management position.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- ─── Hero ─────────────────────────────────────────────── -->
+  <section class="hero-bg text-white flex flex-col items-center justify-center px-6 py-16 text-center">
+
+    <img src="gary_haran.jpg" alt="Gary Haran"
+      class="w-36 h-36 rounded-full object-cover shadow-2xl border-4 border-white/20 mb-8" />
+
+    <h1 class="text-5xl sm:text-7xl font-bold tracking-tight mb-4">Gary Haran</h1>
+
+    <p class="text-xl sm:text-2xl text-blue-300 font-medium mb-3">
+      Product Engineer &amp; Engineering Leader
+    </p>
+
+    <p class="text-slate-400 mb-10 flex items-center gap-2 text-sm sm:text-base">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+        <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-2.013 3.713-4.92 3.713-8.327a8 8 0 10-16 0c0 3.406 1.77 6.313 3.713 8.327a19.58 19.58 0 002.683 2.282 16.975 16.975 0 001.144.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+      </svg>
+      Greater Montreal Region, Canada
+    </p>
+
+    <!-- Social links -->
+    <div class="flex gap-4 mb-16">
+      <a href="https://www.linkedin.com/in/garyharan/" target="_blank" rel="noopener"
+        title="LinkedIn"
+        class="bg-white/10 hover:bg-white/20 transition-colors p-3 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+      </a>
+      <a href="https://www.github.com/garyharan/" target="_blank" rel="noopener"
+        title="GitHub"
+        class="bg-white/10 hover:bg-white/20 transition-colors p-3 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-4.466 19.59c-.405.078-.534-.171-.534-.384v-2.195c0-.747-.262-1.233-.55-1.481 1.782-.198 3.654-.875 3.654-3.947 0-.874-.312-1.588-.823-2.147.082-.202.356-1.016-.079-2.117 0 0-.671-.215-2.198.82-.64-.18-1.324-.267-2.004-.271-.68.003-1.364.091-2.003.269-1.528-1.035-2.2-.82-2.2-.82-.434 1.102-.16 1.915-.077 2.118-.512.56-.824 1.273-.824 2.147 0 3.064 1.867 3.751 3.645 3.954-.229.2-.436.552-.508 1.07-.457.204-1.614.557-2.328-.666 0 0-.423-.768-1.227-.825 0 0-.78-.01-.055.487 0 0 .525.246.889 1.17 0 0 .463 1.428 2.688.944v1.489c0 .211-.129.459-.528.385-3.18-1.057-5.472-4.056-5.472-7.59 0-4.419 3.582-8 8-8s8 3.581 8 8c0 3.533-2.289 6.531-5.466 7.59z"/>
+        </svg>
+      </a>
     </div>
 
+  </section>
+
+  <!-- ─── About ──────────────────────────────────────────────── -->
+  <section id="about" class="bg-white py-24 px-6">
+    <div class="max-w-2xl mx-auto text-center fade-up">
+      <p class="text-xs font-semibold tracking-widest uppercase text-blue-500 mb-4">About</p>
+      <h2 class="text-4xl font-bold text-slate-800 mb-8">Builder at heart</h2>
+      <p class="text-lg text-slate-600 leading-relaxed mb-6">
+        I've spent 80% of my career inside startups — moving fast, wearing many hats, and staying relentlessly focused on what actually matters: finding product/market fit and building teams that want to change the world.
+      </p>
+      <p class="text-lg text-slate-600 leading-relaxed mb-6">
+        I thrive at the intersection of engineering and product leadership. I can go deep on the code and then step back to set direction, mentor engineers, and ship things users love.
+      </p>
+      <p class="text-lg text-slate-600 leading-relaxed">
+        Recently I've been channeling that energy into my own projects — shipping an iOS app and a web platform from scratch.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── What I Bring ─────────────────────────────────────── -->
+  <section class="bg-slate-50 py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-xs font-semibold tracking-widest uppercase text-blue-500 mb-4">Expertise</p>
+        <h2 class="text-4xl font-bold text-slate-800">What I bring to the table</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-8">
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm card-hover fade-up text-center">
+          <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Engineering</h3>
+          <p class="text-slate-500 leading-relaxed text-sm">
+            Full-stack and mobile development. I write production code, review PRs, set technical direction, and ship software that scales.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm card-hover fade-up text-center" style="transition-delay: 0.1s">
+          <div class="bg-purple-50 w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Product &amp; Growth</h3>
+          <p class="text-slate-500 leading-relaxed text-sm">
+            I think like a founder. From validating ideas quickly to driving acquisition loops, I care as much about why we build as what we build.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm card-hover fade-up text-center" style="transition-delay: 0.2s">
+          <div class="bg-emerald-50 w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Team Leadership</h3>
+          <p class="text-slate-500 leading-relaxed text-sm">
+            I build high-trust engineering cultures. I hire well, grow people, and create environments where teams do their best work.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Portfolio ────────────────────────────────────────── -->
+  <section id="portfolio" class="bg-white py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-xs font-semibold tracking-widest uppercase text-blue-500 mb-4">Portfolio</p>
+        <h2 class="text-4xl font-bold text-slate-800">Recent projects</h2>
+        <p class="text-slate-500 mt-4 text-lg">Built and shipped independently.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-8">
+
+        <a href="https://index.recipes" target="_blank" rel="noopener"
+          class="group block bg-gradient-to-br from-emerald-600 to-teal-700 text-white rounded-2xl p-8 card-hover fade-up no-underline sm:col-span-2">
+          <div class="flex items-start justify-between mb-6">
+            <img src="index-recipes-icon.png" alt="index.recipes" class="w-14 h-14 rounded-2xl shadow-lg" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-emerald-200 group-hover:text-white transition-colors shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </div>
+          <p class="text-emerald-300 text-sm font-semibold tracking-widest uppercase mb-1">index.recipes</p>
+          <h3 class="text-2xl font-bold mb-3">Grandma's recipe box, everywhere</h3>
+          <p class="text-emerald-100 leading-relaxed">
+            Like the index card recipes your grandmother kept on the counter — but organized, always with you, and available on any device. Import recipes instantly using AI so you never have to transcribe anything by hand.
+          </p>
+          <div class="mt-6 flex gap-2">
+            <span class="text-xs bg-white/20 rounded-full px-3 py-1">Web</span>
+            <span class="text-xs bg-white/20 rounded-full px-3 py-1">iOS</span>
+            <span class="text-xs bg-white/20 rounded-full px-3 py-1">AI Import</span>
+          </div>
+        </a>
+
+        <a href="https://voila.rsvp" target="_blank" rel="noopener"
+          class="group block bg-slate-900 text-white rounded-2xl p-8 card-hover fade-up no-underline" style="transition-delay: 0.1s">
+          <div class="flex items-start justify-between mb-6">
+            <img src="voila-icon.png" alt="voila.rsvp" class="w-14 h-14 rounded-2xl shadow-lg bg-white p-1" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-400 group-hover:text-white transition-colors shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </div>
+          <p class="text-slate-400 text-sm font-semibold tracking-widest uppercase mb-1">voila.rsvp</p>
+          <h3 class="text-2xl font-bold mb-3">Event RSVPs, simplified</h3>
+          <p class="text-slate-400 leading-relaxed">
+            A web platform for creating and managing event RSVPs without the friction.
+          </p>
+          <div class="mt-6 flex gap-2">
+            <span class="text-xs bg-white/10 rounded-full px-3 py-1">Web</span>
+            <span class="text-xs bg-white/10 rounded-full px-3 py-1">SaaS</span>
+          </div>
+        </a>
+
+        <a href="https://apps.apple.com/ca/app/untility-timeline-widgets/id6760127206" target="_blank" rel="noopener"
+          class="group block bg-gradient-to-br from-blue-600 to-indigo-700 text-white rounded-2xl p-8 card-hover fade-up no-underline" style="transition-delay: 0.2s">
+          <div class="flex items-start justify-between mb-6">
+            <img src="untility-icon.png" alt="Untility" class="w-14 h-14 rounded-2xl shadow-lg" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-200 group-hover:text-white transition-colors shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </div>
+          <p class="text-blue-200 text-sm font-semibold tracking-widest uppercase mb-1">Untility</p>
+          <h3 class="text-2xl font-bold mb-3">Beautiful countdown widgets</h3>
+          <p class="text-blue-100 leading-relaxed">
+            An iOS app for creating elegant timeline widgets that count down to life's important events.
+          </p>
+          <div class="mt-6 flex gap-2">
+            <span class="text-xs bg-white/20 rounded-full px-3 py-1">iOS</span>
+            <span class="text-xs bg-white/20 rounded-full px-3 py-1">App Store</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA / Footer ─────────────────────────────────────── -->
+  <footer class="hero-bg text-white py-20 px-6 text-center">
+    <div class="max-w-xl mx-auto fade-up">
+      <h2 class="text-4xl font-bold mb-4">Let's work together</h2>
+      <p class="text-slate-400 text-lg mb-10">
+        I'm open to senior engineering and product leadership roles at ambitious startups.
+      </p>
+      <a href="https://www.linkedin.com/in/garyharan/" target="_blank" rel="noopener"
+        class="inline-block bg-blue-600 hover:bg-blue-500 transition-colors text-white font-semibold px-8 py-4 rounded-xl text-lg">
+        Get in touch on LinkedIn
+      </a>
+      <p class="text-slate-600 text-sm mt-12">
+        &copy; Gary Haran
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Animate sections as they scroll into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
 </html>
