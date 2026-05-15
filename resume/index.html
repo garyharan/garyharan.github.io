@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gary Haran — Resume</title>
+  <meta name="description" content="Resume of Gary Haran, Senior Full Stack Web & Mobile Developer based in Greater Montreal." />
+  <meta property="og:title" content="Gary Haran — Resume" />
+  <meta property="og:description" content="20+ years shipping products. Full-stack, mobile, and engineering leadership." />
+  <meta property="og:image" content="https://garyharan.com/gary_haran.jpg" />
+  <meta property="og:url" content="https://garyharan.com/resume/" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://garyharan.com/resume/" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .hero-bg {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0f172a 100%);
+    }
+
+    .timeline-entry {
+      position: relative;
+      padding-left: 1.75rem;
+      padding-bottom: 2rem;
+    }
+    .timeline-entry::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      background: #3b82f6;
+      border-radius: 50%;
+      border: 2px solid #bfdbfe;
+      box-sizing: border-box;
+    }
+    .timeline-entry::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 18px;
+      bottom: 0;
+      width: 2px;
+      background: #e2e8f0;
+    }
+    .timeline-entry:last-child::after { display: none; }
+    .timeline-entry:last-child { padding-bottom: 0; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+    }
+
+    @media (min-width: 768px) {
+      .resume-grid {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 2.5rem;
+        align-items: start;
+      }
+      .resume-sidebar {
+        position: sticky;
+        top: 2rem;
+      }
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+      .hero-bg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .fade-up { opacity: 1; transform: none; }
+      body { background: white; }
+      .resume-grid { display: block; }
+      .resume-sidebar { position: static; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- ─── Header ──────────────────────────────────────────────── -->
+  <header class="hero-bg text-white">
+    <div class="max-w-4xl mx-auto px-6 pt-5 no-print">
+      <a href="/"
+        class="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        garyharan.com
+      </a>
+    </div>
+    <div class="max-w-4xl mx-auto px-6 py-10">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-2">Gary Haran</h1>
+          <p class="text-xl text-blue-300 font-medium mb-3">
+            Senior Full Stack Web &amp; Mobile Developer
+          </p>
+          <p class="text-slate-400 text-sm flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-2.013 3.713-4.92 3.713-8.327a8 8 0 10-16 0c0 3.406 1.77 6.313 3.713 8.327a19.58 19.58 0 002.683 2.282 16.975 16.975 0 001.144.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+            </svg>
+            Greater Montreal Metropolitan Area
+          </p>
+        </div>
+        <div class="flex flex-col gap-2 text-sm shrink-0">
+          <a href="mailto:gary.haran@gmail.com"
+            class="text-slate-300 hover:text-white transition-colors flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            gary.haran@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/garyharan/" target="_blank" rel="noopener noreferrer"
+            class="text-slate-300 hover:text-white transition-colors flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+            linkedin.com/in/garyharan
+          </a>
+          <a href="https://garyharan.com" class="text-slate-300 hover:text-white transition-colors flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
+            </svg>
+            garyharan.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Main content ─────────────────────────────────────────── -->
+  <main class="max-w-4xl mx-auto px-6 py-10">
+    <div class="resume-grid">
+
+      <!-- ─── Sidebar ──────────────────────────────────────────── -->
+      <aside class="resume-sidebar flex flex-col gap-6">
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-up">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3">Summary</h2>
+          <p class="text-slate-600 leading-relaxed text-sm">
+            I'm a jack of all trades who loves ambitious projects. Builder and leader who thrives at the intersection of engineering, product, and growth.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-up">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">Skills</h2>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs bg-blue-50 text-blue-700 rounded-full px-3 py-1 font-medium">Full-Stack Dev</span>
+            <span class="text-xs bg-slate-100 text-slate-600 rounded-full px-3 py-1 font-medium">Ruby on Rails</span>
+            <span class="text-xs bg-slate-100 text-slate-600 rounded-full px-3 py-1 font-medium">Hotwire</span>
+            <span class="text-xs bg-slate-100 text-slate-600 rounded-full px-3 py-1 font-medium">Stimulus</span>
+            <span class="text-xs bg-slate-100 text-slate-600 rounded-full px-3 py-1 font-medium">Swift</span>
+            <span class="text-xs bg-slate-100 text-slate-600 rounded-full px-3 py-1 font-medium">Kotlin</span>
+            <span class="text-xs bg-slate-100 text-slate-600 rounded-full px-3 py-1 font-medium">JavaScript</span>
+            <span class="text-xs bg-slate-100 text-slate-600 rounded-full px-3 py-1 font-medium">AI / LLMs</span>
+            <span class="text-xs bg-slate-100 text-slate-600 rounded-full px-3 py-1 font-medium">Kamal</span>
+            <span class="text-xs bg-slate-100 text-slate-600 rounded-full px-3 py-1 font-medium">Team Leadership</span>
+            <span class="text-xs bg-slate-100 text-slate-600 rounded-full px-3 py-1 font-medium">A/B Testing</span>
+            <span class="text-xs bg-slate-100 text-slate-600 rounded-full px-3 py-1 font-medium">Product Strategy</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-up">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">Languages</h2>
+          <div class="flex flex-col gap-3">
+            <div>
+              <div class="text-sm font-semibold text-slate-800">French</div>
+              <div class="text-xs text-slate-500">Native or Bilingual</div>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-slate-800">English</div>
+              <div class="text-xs text-slate-500">Native or Bilingual</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-up">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">Education</h2>
+          <div>
+            <div class="text-sm font-semibold text-slate-800">Collège de l'Acadie</div>
+            <div class="text-xs text-slate-500 mt-1">Diploma, Information Technology</div>
+            <div class="text-xs text-slate-400 mt-1">1997 – 1999</div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ─── Experience ───────────────────────────────────────── -->
+      <div>
+        <section>
+          <h2 class="text-xl font-bold text-slate-800 mb-6 pb-3 border-b border-slate-200 fade-up">
+            Experience
+          </h2>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">Fresh</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Founder</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">Feb 2025 – Present &middot; Greater Montreal</div>
+            <p class="text-slate-600 text-sm leading-relaxed mb-3">
+              Built several products from scratch, owning product decisions, programming, marketing, user interviews, and branding end-to-end.
+            </p>
+            <ul class="text-sm text-slate-600 space-y-2 mb-3">
+              <li class="flex gap-2">
+                <span class="text-blue-400 mt-0.5 shrink-0">›</span>
+                <span><strong class="text-slate-700">Nibly</strong> — calorie counting app with a microservice architecture
+                  <span class="text-slate-400">(Swift, Rails microservice, Gemini/Vertex AI)</span>
+                </span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-blue-400 mt-0.5 shrink-0">›</span>
+                <span><strong class="text-slate-700">voila.rsvp</strong> — event platform with plugin architecture
+                  <span class="text-slate-400">(Rails, Kamal, Hotwire, Stimulus)</span>
+                </span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-blue-400 mt-0.5 shrink-0">›</span>
+                <span><strong class="text-slate-700">index.recipes</strong> — recipe import &amp; search with deep AI integration, Web + iOS + Android
+                  <span class="text-slate-400">(Rails, Hotwire Native, Meilisearch, Swift, Kotlin)</span>
+                </span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-blue-400 mt-0.5 shrink-0">›</span>
+                <span><strong class="text-slate-700">Untility</strong> — life event tracker with beautiful iOS widgets
+                  <span class="text-slate-400">(Swift)</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">Circle Medical</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Developer and Manager</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">Jan 2024 – Jan 2025 &middot; Montreal, QC</div>
+            <ul class="text-sm text-slate-600 space-y-2">
+              <li class="flex gap-2">
+                <span class="text-blue-400 mt-0.5 shrink-0">›</span>
+                <span>Boosted appointment attendance by <strong class="text-slate-700">15.7–16.9%</strong> through optimized landing pages.</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-blue-400 mt-0.5 shrink-0">›</span>
+                <span>Increased hiring speed by rolling out Gem to HR team — engaged 350+ candidates, interviewed 34+, and hired <strong class="text-slate-700">250% more</strong> than the previous year.</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-blue-400 mt-0.5 shrink-0">›</span>
+                <span>Drove a <strong class="text-slate-700">4.41% attendance lift</strong> with a Patient Portal POC and improved ad efficiency by 11.5–12.3%.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">Mirego</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Senior Software Engineer</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">Jun 2023 – Nov 2023 &middot; Montreal, QC</div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Developed a cross-platform navigation tool powering tens of thousands of riders across all 4 seasons on iPhone and Android, connecting to vehicle hubs. Worked on map interaction, social features, and preview image generation in a Phoenix backend. Built Figma-to-Kotlin image import tooling for the whole team.
+            </p>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">Shopify</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Developer Manager</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">Jan 2020 – Jan 2023 &middot; Montreal, QC</div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Grew a fintech team from 12 local developers to over 70 remote developers across multiple teams spanning GMT−7 to GMT+3. Hired, coached, and grew new managers. Identified growth opportunities for team members and improved cross-discipline communication for the larger organization.
+            </p>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">Acquisio</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Technical Lead</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">Feb 2015 – Nov 2019 &middot; Brossard, QC</div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Created new products to open new markets. Built microservices for automated PPC software for SMBs and a scheduling optimization service for spend optimization. Managed a team applying idea meritocracy principles in a Kaizen approach.
+            </p>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">Codified</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Senior Technical Lead</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">Mar 2013 – Apr 2014 &middot; Montreal</div>
+            <ul class="text-sm text-slate-600 space-y-2">
+              <li class="flex gap-2"><span class="text-blue-400 mt-0.5 shrink-0">›</span><span>Grew user base from 90k to <strong class="text-slate-700">2.3 million users</strong>.</span></li>
+              <li class="flex gap-2"><span class="text-blue-400 mt-0.5 shrink-0">›</span><span>Designed and evolved a JSON API serving iOS, Android, and Kindle clients.</span></li>
+              <li class="flex gap-2"><span class="text-blue-400 mt-0.5 shrink-0">›</span><span>Cut support ticket resolution time to <strong class="text-slate-700">1/5th</strong> by building proper customer support tooling.</span></li>
+            </ul>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">Qwalify</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Lead Developer</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">Feb 2012 – Apr 2013 &middot; Montreal</div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Introduced development best practices (testing, CI), built and maintained product features, UI/UX, and A/B testing. Managed a team of 5.
+            </p>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">Hopper</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Full Stack Development Team Lead</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">Jun 2011 – Feb 2012 &middot; Montreal</div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Responsible for creating Web and Mobile user interfaces. Evolved big data content management tools.
+            </p>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">Sauté Applications</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Co-Owner</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">Jan 2010 – Nov 2011 &middot; Montreal</div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              UI development, API creation, and business strategy. Consulted for startups around the world. Co-founded Talker, the most extensible group chat application ever created — found acquirers and sold the project.
+            </p>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">SocialGrapes</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Chief Information Officer</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">Apr 2010 – Apr 2011</div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Built a social platform for sharing wine experiences and an e-commerce site selling wine on the US market.
+            </p>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">Standout Jobs</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Lead Front End &amp; Growth Developer</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">2007 – Jan 2010</div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Created a drag-and-drop website builder. Ran A/B tests to find market fit. Learned deeply about marketing and usability in a startup context.
+            </p>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">ZipLocal</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Front-End Web Developer</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">Jan 2007 – Dec 2007</div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Built a draggable map widget similar to Google Maps and a "super local" search engine using extensive phone book data.
+            </p>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">Mentel</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Senior Developer</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">Sep 2006 – Dec 2006</div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Reduced UI inefficiencies in a CMS for large media content — the new system took only 10% of the time to operate compared to its predecessor.
+            </p>
+          </div>
+
+          <div class="timeline-entry fade-up">
+            <div class="font-bold text-slate-800">B-process</div>
+            <div class="text-blue-600 font-semibold text-sm mt-0.5">Developer</div>
+            <div class="text-slate-400 text-xs mt-1 mb-3">2001 – 2003</div>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Led a front-end team building a secure, fast, and reliable UI for e-billing software. The UI framework remained in use for 10 years after its creation.
+            </p>
+          </div>
+
+        </section>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ─── Footer CTA ───────────────────────────────────────────── -->
+  <footer class="hero-bg text-white py-16 px-6 text-center no-print">
+    <div class="max-w-xl mx-auto fade-up">
+      <h2 class="text-3xl font-bold mb-4">Let's work together</h2>
+      <p class="text-slate-400 mb-8">Open to senior engineering and product leadership roles at ambitious startups.</p>
+      <div class="sm:flex sm:flex-row sm:items-center sm:gap-4 sm:justify-center space-y-4 sm:space-y-0">
+        <div class="flex items-stretch rounded-xl overflow-hidden">
+          <a href="mailto:gary.haran@gmail.com"
+            class="flex-1 text-center bg-blue-600 hover:bg-blue-500 transition-colors text-white font-semibold px-8 py-4 rounded-l-xl">
+            Email me
+          </a>
+          <div class="w-px bg-blue-500 shrink-0"></div>
+          <button aria-label="Copy email address"
+            onclick="navigator.clipboard.writeText('gary.haran@gmail.com').then(() => { this.textContent = '✓'; setTimeout(() => this.textContent = '⎘', 1500) })"
+            class="shrink-0 bg-blue-600 hover:bg-blue-500 transition-colors text-white font-semibold px-5 py-4 text-lg rounded-r-xl">
+            ⎘
+          </button>
+        </div>
+        <a href="https://www.linkedin.com/in/garyharan/" target="_blank" rel="noopener noreferrer"
+          class="block text-center bg-white/10 hover:bg-white/20 transition-colors text-white font-semibold px-8 py-4 rounded-xl">
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

@@ -324,21 +324,21 @@
       <p class="text-slate-400 text-lg mb-10">
         I'm open to senior engineering and product leadership roles at ambitious startups.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="sm:flex sm:flex-row sm:items-center sm:gap-4 sm:justify-center space-y-4 sm:space-y-0">
         <div class="flex items-stretch rounded-xl overflow-hidden">
           <a href="mailto:gary.haran@gmail.com"
-            class="bg-blue-600 hover:bg-blue-500 transition-colors text-white font-semibold px-8 py-4 text-lg">
+            class="flex-1 text-center bg-blue-600 hover:bg-blue-500 transition-colors text-white font-semibold px-8 py-4 text-lg rounded-l-xl">
             Email me
           </a>
-          <div class="w-px bg-blue-500"></div>
+          <div class="w-px bg-blue-500 shrink-0"></div>
           <button id="copy-email" aria-label="Copy email address"
             onclick="navigator.clipboard.writeText('gary.haran@gmail.com').then(() => { this.textContent = '✓'; setTimeout(() => this.textContent = '⎘', 1500) })"
-            class="bg-blue-600 hover:bg-blue-500 transition-colors text-white font-semibold px-5 py-4 text-lg">
+            class="shrink-0 bg-blue-600 hover:bg-blue-500 transition-colors text-white font-semibold px-5 py-4 text-lg rounded-r-xl">
             ⎘
           </button>
         </div>
         <a href="https://www.linkedin.com/in/garyharan/" target="_blank" rel="noopener noreferrer"
-          class="inline-block bg-white/10 hover:bg-white/20 transition-colors text-white font-semibold px-8 py-4 rounded-xl text-lg">
+          class="block text-center bg-white/10 hover:bg-white/20 transition-colors text-white font-semibold px-8 py-4 rounded-xl text-lg">
           LinkedIn
         </a>
       </div>
