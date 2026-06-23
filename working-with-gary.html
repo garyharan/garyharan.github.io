@@ -1,661 +1,743 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Working with Gary</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=DM+Serif+Display&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Working with Gary</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=DM+Serif+Display&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
 
-      :root {
-        --bg: #f7f6f2;
-        --surface: #ffffff;
-        --surface-muted: #f0eee9;
-        --text-primary: #1a1916;
-        --text-secondary: #6b6860;
-        --text-tertiary: #a09d97;
-        --border: rgba(26, 25, 22, 0.1);
-        --border-strong: rgba(26, 25, 22, 0.18);
-        --accent: #2a4d3e;
-        --accent-light: #e8f0ec;
-        --font-display: "DM Serif Display", Georgia, serif;
-        --font-body: "Inter", system-ui, sans-serif;
-      }
+            :root {
+                --bg: #f7f6f2;
+                --surface: #ffffff;
+                --surface-muted: #f0eee9;
+                --text-primary: #1a1916;
+                --text-secondary: #6b6860;
+                --text-tertiary: #a09d97;
+                --border: rgba(26, 25, 22, 0.1);
+                --border-strong: rgba(26, 25, 22, 0.18);
+                --accent: #2a4d3e;
+                --accent-light: #e8f0ec;
+                --font-display: "DM Serif Display", Georgia, serif;
+                --font-body: "Inter", system-ui, sans-serif;
+            }
 
-      body {
-        background: var(--bg);
-        color: var(--text-primary);
-        font-family: var(--font-body);
-        font-size: 15px;
-        line-height: 1.6;
-        min-height: 100vh;
-        padding: 3rem 1.5rem 5rem;
-      }
+            body {
+                background: var(--bg);
+                color: var(--text-primary);
+                font-family: var(--font-body);
+                font-size: 15px;
+                line-height: 1.6;
+                min-height: 100vh;
+                padding: 3rem 1.5rem 5rem;
+            }
 
-      .page {
-        max-width: 720px;
-        margin: 0 auto;
-      }
+            .page {
+                max-width: 720px;
+                margin: 0 auto;
+            }
 
-      /* Hero */
-      .hero {
-        padding-bottom: 2.5rem;
-        border-bottom: 0.5px solid var(--border-strong);
-        margin-bottom: 2.5rem;
-      }
+            /* Hero */
+            .hero {
+                padding-bottom: 2.5rem;
+                border-bottom: 0.5px solid var(--border-strong);
+                margin-bottom: 2.5rem;
+            }
 
-      .hero-eyebrow {
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--text-tertiary);
-        margin-bottom: 0.75rem;
-      }
+            .hero-eyebrow {
+                font-size: 11px;
+                font-weight: 500;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--text-tertiary);
+                margin-bottom: 0.75rem;
+            }
 
-      .hero h1 {
-        font-family: var(--font-display);
-        font-size: clamp(38px, 6vw, 56px);
-        font-weight: 400;
-        line-height: 1.1;
-        color: var(--text-primary);
-        margin-bottom: 1rem;
-      }
+            .hero h1 {
+                font-family: var(--font-display);
+                font-size: clamp(38px, 6vw, 56px);
+                font-weight: 400;
+                line-height: 1.1;
+                color: var(--text-primary);
+                margin-bottom: 1rem;
+            }
 
-      .hero h1 em {
-        font-style: italic;
-        color: var(--accent);
-      }
+            .hero h1 em {
+                font-style: italic;
+                color: var(--accent);
+            }
 
-      .hero-sub {
-        font-size: 15px;
-        color: var(--text-secondary);
-        max-width: 480px;
-        line-height: 1.65;
-      }
+            .hero-sub {
+                font-size: 15px;
+                color: var(--text-secondary);
+                max-width: 480px;
+                line-height: 1.65;
+            }
 
-      /* Section */
-      .section {
-        margin-bottom: 2.75rem;
-      }
+            /* Section */
+            .section {
+                margin-bottom: 2.75rem;
+            }
 
-      .section-label {
-        font-size: 10px;
-        font-weight: 500;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--text-tertiary);
-        margin-bottom: 1rem;
-      }
+            .section-label {
+                font-size: 10px;
+                font-weight: 500;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--text-tertiary);
+                margin-bottom: 1rem;
+            }
 
-      /* Stats grid */
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        margin-bottom: 1rem;
-      }
+            /* Stats grid */
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+                margin-bottom: 1rem;
+            }
 
-      @media (max-width: 560px) {
-        .stats-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
+            @media (max-width: 560px) {
+                .stats-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
 
-      .stat {
-        background: var(--surface);
-        border: 0.5px solid var(--border);
-        border-radius: 10px;
-        padding: 1rem;
-      }
+            .stat {
+                background: var(--surface);
+                border: 0.5px solid var(--border);
+                border-radius: 10px;
+                padding: 1rem;
+            }
 
-      .stat-num {
-        font-family: var(--font-display);
-        font-size: 32px;
-        font-weight: 400;
-        color: var(--text-primary);
-        line-height: 1;
-        margin-bottom: 6px;
-      }
+            .stat-num {
+                font-family: var(--font-display);
+                font-size: 32px;
+                font-weight: 400;
+                color: var(--text-primary);
+                line-height: 1;
+                margin-bottom: 6px;
+            }
 
-      .stat-label {
-        font-size: 11px;
-        color: var(--text-secondary);
-        line-height: 1.45;
-      }
+            .stat-label {
+                font-size: 11px;
+                color: var(--text-secondary);
+                line-height: 1.45;
+            }
 
-      /* Acquisition pills */
-      .acq-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 1rem;
-      }
+            /* Acquisition pills */
+            .acq-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 1rem;
+            }
 
-      .acq-pill {
-        background: var(--surface);
-        border: 0.5px solid var(--border);
-        border-radius: 20px;
-        padding: 5px 14px;
-        font-size: 12px;
-        color: var(--text-secondary);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
+            .acq-pill {
+                background: var(--surface);
+                border: 0.5px solid var(--border);
+                border-radius: 20px;
+                padding: 5px 14px;
+                font-size: 12px;
+                color: var(--text-secondary);
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
 
-      .acq-pill strong {
-        color: var(--text-primary);
-        font-weight: 500;
-      }
+            .acq-pill strong {
+                color: var(--text-primary);
+                font-weight: 500;
+            }
 
-      .acq-pill .arrow {
-        color: var(--text-tertiary);
-        font-size: 11px;
-      }
+            .acq-pill .arrow {
+                color: var(--text-tertiary);
+                font-size: 11px;
+            }
 
-      /* Community grid */
-      .comm-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-      }
+            /* Community grid */
+            .comm-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
 
-      @media (max-width: 500px) {
-        .comm-grid {
-          grid-template-columns: 1fr;
-        }
-      }
+            .comm-grid + .comm-grid {
+                margin-top: 10px;
+            }
 
-      .comm-card {
-        background: var(--surface);
-        border: 0.5px solid var(--border);
-        border-radius: 10px;
-        padding: 1.1rem 1.25rem;
-      }
+            @media (max-width: 500px) {
+                .comm-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
 
-      .comm-eyebrow {
-        font-size: 10px;
-        font-weight: 500;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 5px;
-      }
+            .comm-card {
+                background: var(--surface);
+                border: 0.5px solid var(--border);
+                border-radius: 10px;
+                padding: 1.1rem 1.25rem;
+            }
 
-      .comm-title {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--text-primary);
-        margin-bottom: 6px;
-      }
+            .comm-eyebrow {
+                font-size: 10px;
+                font-weight: 500;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--accent);
+                margin-bottom: 5px;
+            }
 
-      .comm-desc {
-        font-size: 13px;
-        color: var(--text-secondary);
-        line-height: 1.55;
-      }
+            .comm-title {
+                font-size: 14px;
+                font-weight: 500;
+                color: var(--text-primary);
+                margin-bottom: 6px;
+            }
 
-      .comm-stat {
-        font-family: var(--font-display);
-        font-size: 26px;
-        color: var(--text-primary);
-        margin: 10px 0 2px;
-        line-height: 1;
-      }
+            .comm-desc {
+                font-size: 13px;
+                color: var(--text-secondary);
+                line-height: 1.55;
+            }
 
-      .comm-stat-label {
-        font-size: 11px;
-        color: var(--text-tertiary);
-      }
+            .comm-stat {
+                font-family: var(--font-display);
+                font-size: 26px;
+                color: var(--text-primary);
+                margin: 10px 0 2px;
+                line-height: 1;
+            }
 
-      /* Principle cards */
-      .principle {
-        display: flex;
-        gap: 1rem;
-        align-items: flex-start;
-        padding: 1rem 0;
-        border-bottom: 0.5px solid var(--border);
-      }
+            .comm-stat-label {
+                font-size: 11px;
+                color: var(--text-tertiary);
+            }
 
-      .principle:first-child {
-        border-top: 0.5px solid var(--border);
-      }
+            /* Principle cards */
+            .principle {
+                display: flex;
+                gap: 1rem;
+                align-items: flex-start;
+                padding: 1rem 0;
+                border-bottom: 0.5px solid var(--border);
+            }
 
-      .principle-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-        background: var(--accent-light);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        margin-top: 2px;
-      }
+            .principle:first-child {
+                border-top: 0.5px solid var(--border);
+            }
 
-      .principle-icon svg {
-        width: 16px;
-        height: 16px;
-        stroke: var(--accent);
-        fill: none;
-        stroke-width: 1.75;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
+            .principle-icon {
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+                background: var(--accent-light);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                margin-top: 2px;
+            }
 
-      .principle-title {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--text-primary);
-        margin-bottom: 3px;
-      }
+            .principle-icon svg {
+                width: 16px;
+                height: 16px;
+                stroke: var(--accent);
+                fill: none;
+                stroke-width: 1.75;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
 
-      .principle-desc {
-        font-size: 13px;
-        color: var(--text-secondary);
-        line-height: 1.6;
-      }
+            .principle-title {
+                font-size: 14px;
+                font-weight: 500;
+                color: var(--text-primary);
+                margin-bottom: 3px;
+            }
 
-      /* Limitations */
-      .limits {
-        background: var(--surface-muted);
-        border-radius: 10px;
-        padding: 1rem 1.25rem;
-      }
+            .principle-desc {
+                font-size: 13px;
+                color: var(--text-secondary);
+                line-height: 1.6;
+            }
 
-      .limit-row {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-        padding: 8px 0;
-        font-size: 13px;
-        color: var(--text-secondary);
-        line-height: 1.55;
-      }
+            /* Limitations */
+            .limits {
+                background: var(--surface-muted);
+                border-radius: 10px;
+                padding: 1rem 1.25rem;
+            }
 
-      .limit-row + .limit-row {
-        border-top: 0.5px solid var(--border);
-        margin-top: 4px;
-        padding-top: 12px;
-      }
+            .limit-row {
+                display: flex;
+                gap: 12px;
+                align-items: flex-start;
+                padding: 8px 0;
+                font-size: 13px;
+                color: var(--text-secondary);
+                line-height: 1.55;
+            }
 
-      .limit-row svg {
-        width: 16px;
-        height: 16px;
-        stroke: var(--text-tertiary);
-        fill: none;
-        stroke-width: 1.75;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        flex-shrink: 0;
-        margin-top: 1px;
-      }
+            .limit-row + .limit-row {
+                border-top: 0.5px solid var(--border);
+                margin-top: 4px;
+                padding-top: 12px;
+            }
 
-      .limit-row strong {
-        color: var(--text-primary);
-        font-weight: 500;
-      }
+            .limit-row svg {
+                width: 16px;
+                height: 16px;
+                stroke: var(--text-tertiary);
+                fill: none;
+                stroke-width: 1.75;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                flex-shrink: 0;
+                margin-top: 1px;
+            }
 
-      /* Divider */
-      hr {
-        border: none;
-        border-top: 0.5px solid var(--border-strong);
-        margin: 2.5rem 0;
-      }
+            .limit-row strong {
+                color: var(--text-primary);
+                font-weight: 500;
+            }
 
-      /* Footer */
-      .footer {
-        margin-top: 3rem;
-        padding-top: 1.5rem;
-        border-top: 0.5px solid var(--border);
-        font-size: 12px;
-        color: var(--text-tertiary);
-      }
-    </style>
-  </head>
-  <body>
-    <div class="page">
-      <div class="hero">
-        <p class="hero-eyebrow">A guide to</p>
-        <h1>Working<br />with <em>me</em></h1>
-        <p class="hero-sub">
-          Who I am, how I work, and how we can build together.
-        </p>
-      </div>
+            /* Divider */
+            hr {
+                border: none;
+                border-top: 0.5px solid var(--border-strong);
+                margin: 2.5rem 0;
+            }
 
-      <!-- Startups & acquisitions -->
-      <div class="section">
-        <p class="section-label">Startups &amp; acquisitions</p>
-        <div class="stats-grid">
-          <div class="stat">
-            <div class="stat-num">4×</div>
-            <div class="stat-label">
-              Companies acquired — as founder and early employee
+            /* Footer */
+            .footer {
+                margin-top: 3rem;
+                padding-top: 1.5rem;
+                border-top: 0.5px solid var(--border);
+                font-size: 12px;
+                color: var(--text-tertiary);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <div class="hero">
+                <p class="hero-eyebrow">A guide to</p>
+                <h1>Working<br />with <em>me</em></h1>
+                <p class="hero-sub">
+                    Who I am, how I work, and how we can build together.
+                </p>
             </div>
-          </div>
-        </div>
-        <div class="acq-row">
-          <div class="acq-pill">
-            <strong>TalkerApp</strong><span class="arrow">→</span>TeamBox
-          </div>
-          <div class="acq-pill">
-            <strong>Wow Detox</strong><span class="arrow">→</span>MarketingGurus
-          </div>
-          <div class="acq-pill">
-            <strong>Acquisio</strong><span class="arrow">→</span>Web.com
-          </div>
-          <div class="acq-pill">
-            <strong>VarageSale</strong><span class="arrow">→</span>VerticalScope
-          </div>
-        </div>
-      </div>
 
-      <hr />
-
-      <!-- Management experience -->
-      <div class="section">
-        <p class="section-label">Management experience</p>
-        <p class="hero-sub" style="margin-bottom: 1rem">
-          My most notable EM role was at <strong>Shopify</strong>, where I
-          grew an engineering org from 12 to 78 people.
-        </p>
-        <div class="stats-grid">
-          <div class="stat">
-            <div class="stat-num">78</div>
-            <div class="stat-label">
-              Engineers grown from a team of 12 at Shopify
+            <!-- Startups & acquisitions -->
+            <div class="section">
+                <p class="section-label">Startups &amp; acquisitions</p>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <div class="stat-num">4×</div>
+                        <div class="stat-label">
+                            Companies acquired — as founder and early employee
+                        </div>
+                    </div>
+                </div>
+                <div class="acq-row">
+                    <div class="acq-pill">
+                        <strong>TalkerApp</strong
+                        ><span class="arrow">→</span>TeamBox
+                    </div>
+                    <div class="acq-pill">
+                        <strong>Wow Detox</strong
+                        ><span class="arrow">→</span>MarketingGurus
+                    </div>
+                    <div class="acq-pill">
+                        <strong>Acquisio</strong
+                        ><span class="arrow">→</span>Web.com
+                    </div>
+                    <div class="acq-pill">
+                        <strong>VarageSale</strong
+                        ><span class="arrow">→</span>VerticalScope
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">11h</div>
-            <div class="stat-label">
-              Time zone spread managed across distributed teams
+
+            <hr />
+
+            <!-- Management experience -->
+            <div class="section">
+                <p class="section-label">Management experience</p>
+                <p class="hero-sub" style="margin-bottom: 1rem">
+                    My most notable EM role was at <strong>Shopify</strong>,
+                    where I grew an engineering org from 12 to 78 people.
+                </p>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <div class="stat-num">12 &rarr; 78</div>
+                        <div class="stat-label">
+                            Engineers grown from a single team of 12 to multiple
+                            teams at Shopify
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">11h</div>
+                        <div class="stat-label">
+                            Time zone spread managed across distributed teams
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">EM²</div>
+                        <div class="stat-label">
+                            Managed managers — I understand your world
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">EM²</div>
-            <div class="stat-label">
-              Managed managers — I understand your world
+
+            <hr />
+
+            <!-- Code -->
+            <div class="section">
+                <p class="section-label">Before management</p>
+                <div class="comm-grid">
+                    <div class="comm-card">
+                        <p class="comm-eyebrow">
+                            Full-stack, before it was cool
+                        </p>
+                        <p class="comm-title">I wrote code for a living</p>
+                        <p class="comm-desc">
+                            I used iframes to load data dynamically on web pages
+                            before AJAX was possible. Some code I wrote in 2001
+                            was still in production in 2010.
+                        </p>
+                        <p class="comm-stat">2001 → 2010</p>
+                        <p class="comm-stat-label">
+                            one line of code's life in production
+                        </p>
+                    </div>
+                    <div class="comm-card">
+                        <p class="comm-eyebrow">Favorite language</p>
+                        <p class="comm-title">Ruby</p>
+                        <p class="comm-desc">
+                            I love coding katas, and I have a favorite one. Ask
+                            me about it if you've got a few hours to spare.
+                        </p>
+                    </div>
+                </div>
+                <div class="comm-grid">
+                    <div class="comm-card">
+                        <p class="comm-eyebrow">Growth Hacker</p>
+                        <p class="comm-title">
+                            I circumvented Facebook's API limits
+                        </p>
+                        <p class="comm-desc">
+                            Grew a Varagesale from 90k users to 2.3 million
+                            users by going around Facebook's API limits with
+                            Capybara and multiple linode servers.
+                        </p>
+                        <p class="comm-stat">90k → 2.3M</p>
+                        <p class="comm-stat-label">user growth</p>
+                    </div>
+                    <div class="comm-card">
+                        <p class="comm-eyebrow">I love cognitive science</p>
+                        <p class="comm-title">Home page optimizations</p>
+                        <p class="comm-desc">
+                            Optimizing for Lighthouse metrics help grow revenue
+                            for a company by over 16%.
+                        </p>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <hr />
+
+            <!-- Community -->
+            <div class="section">
+                <p class="section-label">Community</p>
+                <div class="comm-grid">
+                    <div class="comm-card">
+                        <p class="comm-eyebrow">Speaker</p>
+                        <p class="comm-title">Montreal Ruby</p>
+                        <p class="comm-desc">
+                            Regular presenter at one of Montreal's
+                            longest-running developer meetups. I believe in
+                            giving back to the community that shaped me.
+                        </p>
+                    </div>
+                    <div class="comm-card">
+                        <p class="comm-eyebrow">Educator</p>
+                        <p class="comm-title">RailsBridge Montreal</p>
+                        <p class="comm-desc">
+                            Brought RailsBridge to Montreal to make programming
+                            accessible to everyone.
+                        </p>
+                        <p class="comm-stat">17 – 77</p>
+                        <p class="comm-stat-label">
+                            age range of students taught
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <!-- Management style -->
+            <div class="section">
+                <p class="section-label">My management style</p>
+
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"
+                            />
+                            <path
+                                d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"
+                            />
+                            <line x1="1" y1="1" x2="23" y2="23" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="principle-title">
+                            Trust first, verify by exception
+                        </p>
+                        <p class="principle-desc">
+                            I won't micromanage. I assume you're capable and
+                            give you room to work. I check in when something
+                            seems off. I love code though and sometimes might
+                            make suggestions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                            <polyline points="17 6 23 6 23 12" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="principle-title">Growth is the job</p>
+                        <p class="principle-desc">
+                            I think about your career development as much as the
+                            roadmap. Tell me where you want to go. I will help
+                            you get there. Oftentimes I'll be working to improve
+                            the processes that help or hinder the team.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.59 3.41 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16a2 2 0 0 1 .27.92z"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="principle-title">I'll be your advocate</p>
+                        <p class="principle-desc">
+                            Visibility matters. I'll toot your horn in the rooms
+                            you're not in and make sure your work gets the
+                            credit it deserves.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <!-- What I ask -->
+            <div class="section">
+                <p class="section-label">What I ask of you</p>
+
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+                            />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="principle-title">
+                            Transparency over perfection
+                        </p>
+                        <p class="principle-desc">
+                            I want the right people to know when something goes
+                            wrong. Not after we've fixed it. I love getting bad
+                            news early.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="principle-title">Own your domain</p>
+                        <p class="principle-desc">
+                            I delegate with intent. When something is yours,
+                            it's yours. If you need help with something, I'll be
+                            there.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="6" />
+                            <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="principle-title">Pride in your craft</p>
+                        <p class="principle-desc">
+                            Standards matter. I care about code quality, design
+                            decisions, and doing things right. I have strong
+                            opinions about cyclomatic complexity and naming
+                            things. I will never complain if you include me in
+                            naming a project, model or function.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <!-- Limitations -->
+            <div class="section">
+                <p class="section-label">A few honest limitations</p>
+                <div class="limits">
+                    <div class="limit-row">
+                        <svg viewBox="0 0 24 24">
+                            <rect
+                                x="2"
+                                y="2"
+                                width="20"
+                                height="8"
+                                rx="2"
+                                ry="2"
+                            />
+                            <rect
+                                x="2"
+                                y="14"
+                                width="20"
+                                height="8"
+                                rx="2"
+                                ry="2"
+                            />
+                            <line x1="6" y1="6" x2="6.01" y2="6" />
+                            <line x1="6" y1="18" x2="6.01" y2="18" />
+                            <line x1="1" y1="1" x2="23" y2="23" />
+                        </svg>
+                        <span
+                            ><strong>DevOps is not my domain.</strong> I won't
+                            pretend otherwise. I'll find you the right resource,
+                            not fake expertise I don't have.</span
+                        >
+                    </div>
+                    <div class="limit-row">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                            />
+                            <line x1="1" y1="1" x2="23" y2="23" />
+                        </svg>
+                        <span
+                            ><strong>I can't read your mind.</strong> If you
+                            need a break, tell me. I'll nearly always say yes. I
+                            might not notice if you don't say anything.</span
+                        >
+                    </div>
+                    <div class="limit-row">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        <span
+                            ><strong
+                                >I won't be as involved in the code as
+                                you.</strong
+                            >
+                            Management requires time handling non-technical
+                            stuff. I'll dive deep and pair with you when you ask
+                            for it and time allows, but I'll defer to your
+                            expertise on code-related issues.</span
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <!-- Favorite management videos -->
+            <div class="section">
+                <p class="section-label">Favorite management talks</p>
+                <div class="comm-grid">
+                    <a
+                        class="comm-card"
+                        href="https://www.youtube.com/watch?v=099cHWSbAL8"
+                        target="_blank"
+                        rel="noopener"
+                        style="
+                            display: block;
+                            text-decoration: none;
+                            color: inherit;
+                        "
+                    >
+                        <p class="comm-eyebrow">Nickolas Means</p>
+                        <p class="comm-title">How to Crash an Airplane</p>
+                        <p class="comm-desc">
+                            My favorite talk on management — what a
+                            near-disaster mid-flight teaches about trust,
+                            delegation, and staying calm under pressure.
+                        </p>
+                    </a>
+                    <a
+                        class="comm-card"
+                        href="https://www.youtube.com/watch?v=pL3Yzjk5R4M"
+                        target="_blank"
+                        rel="noopener"
+                        style="
+                            display: block;
+                            text-decoration: none;
+                            color: inherit;
+                        "
+                    >
+                        <p class="comm-eyebrow">Nickolas Means</p>
+                        <p class="comm-title">The Original Skunk Works</p>
+                        <p class="comm-desc">
+                            Also great, from the same speaker — how Lockheed's
+                            legendary team built breakthrough work by getting
+                            out of their own way.
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer">
+                Questions before we meet? Reach out any time.
+            </div>
         </div>
-      </div>
-
-      <hr />
-
-      <!-- Code -->
-      <div class="section">
-        <p class="section-label">Before management</p>
-        <div class="comm-grid">
-          <div class="comm-card">
-            <p class="comm-eyebrow">Full-stack, before it was cool</p>
-            <p class="comm-title">I wrote code for a living</p>
-            <p class="comm-desc">
-              I used iframes to load data dynamically on web pages before
-              AJAX was possible. Some code I wrote in 2001 was still in
-              production in 2010.
-            </p>
-            <p class="comm-stat">2001 → 2010</p>
-            <p class="comm-stat-label">one line of code's life in production</p>
-          </div>
-          <div class="comm-card">
-            <p class="comm-eyebrow">Favorite language</p>
-            <p class="comm-title">Ruby</p>
-            <p class="comm-desc">
-              I love coding katas, and I have a favorite one. Ask me about it
-              if you've got a few hours to spare.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <hr />
-
-      <!-- Community -->
-      <div class="section">
-        <p class="section-label">Community</p>
-        <div class="comm-grid">
-          <div class="comm-card">
-            <p class="comm-eyebrow">Speaker</p>
-            <p class="comm-title">Montreal Ruby</p>
-            <p class="comm-desc">
-              Regular presenter at one of Montreal's longest-running developer
-              meetups. I believe in giving back to the community that shaped me.
-            </p>
-          </div>
-          <div class="comm-card">
-            <p class="comm-eyebrow">Educator</p>
-            <p class="comm-title">RailsBridge Montreal</p>
-            <p class="comm-desc">
-              Brought RailsBridge to Montreal to make programming accessible to
-              everyone.
-            </p>
-            <p class="comm-stat">17 – 77</p>
-            <p class="comm-stat-label">age range of students taught</p>
-          </div>
-        </div>
-      </div>
-
-      <hr />
-
-      <!-- Management style -->
-      <div class="section">
-        <p class="section-label">My management style</p>
-
-        <div class="principle">
-          <div class="principle-icon">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"
-              />
-              <path
-                d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"
-              />
-              <line x1="1" y1="1" x2="23" y2="23" />
-            </svg>
-          </div>
-          <div>
-            <p class="principle-title">Trust first, verify by exception</p>
-            <p class="principle-desc">
-              I won't micromanage. I assume you're capable and give you room to
-              work. I check in when something seems off. I love code though and
-              sometimes might make suggestions.
-            </p>
-          </div>
-        </div>
-
-        <div class="principle">
-          <div class="principle-icon">
-            <svg viewBox="0 0 24 24">
-              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-              <polyline points="17 6 23 6 23 12" />
-            </svg>
-          </div>
-          <div>
-            <p class="principle-title">Growth is the job</p>
-            <p class="principle-desc">
-              I think about your career development as much as the roadmap. Tell
-              me where you want to go. I will help you get there.
-            </p>
-          </div>
-        </div>
-
-        <div class="principle">
-          <div class="principle-icon">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.59 3.41 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16a2 2 0 0 1 .27.92z"
-              />
-            </svg>
-          </div>
-          <div>
-            <p class="principle-title">I'll be your advocate</p>
-            <p class="principle-desc">
-              Visibility matters. I'll toot your horn in the rooms you're not in
-              and make sure your work gets the credit it deserves.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <hr />
-
-      <!-- What I ask -->
-      <div class="section">
-        <p class="section-label">What I ask of you</p>
-
-        <div class="principle">
-          <div class="principle-icon">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
-              />
-              <line x1="12" y1="9" x2="12" y2="13" />
-              <line x1="12" y1="17" x2="12.01" y2="17" />
-            </svg>
-          </div>
-          <div>
-            <p class="principle-title">Transparency over perfection</p>
-            <p class="principle-desc">
-              I want the right people to know when something goes wrong. Not
-              after we've fixed it. I love getting bad news early.
-            </p>
-          </div>
-        </div>
-
-        <div class="principle">
-          <div class="principle-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-          </div>
-          <div>
-            <p class="principle-title">Own your domain</p>
-            <p class="principle-desc">
-              I delegate with intent. When something is yours, it's yours. If
-              you need help with something, I'll be there.
-            </p>
-          </div>
-        </div>
-
-        <div class="principle">
-          <div class="principle-icon">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="6" />
-              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
-            </svg>
-          </div>
-          <div>
-            <p class="principle-title">Pride in your craft</p>
-            <p class="principle-desc">
-              Standards matter. I care about code quality, design decisions, and
-              doing things right. I have strong opinions about cyclomatic
-              complexity and naming things. I will never complain if you include
-              me in naming a project, model or function.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <hr />
-
-      <!-- Limitations -->
-      <div class="section">
-        <p class="section-label">A few honest limitations</p>
-        <div class="limits">
-          <div class="limit-row">
-            <svg viewBox="0 0 24 24">
-              <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-              <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-              <line x1="6" y1="6" x2="6.01" y2="6" />
-              <line x1="6" y1="18" x2="6.01" y2="18" />
-              <line x1="1" y1="1" x2="23" y2="23" />
-            </svg>
-            <span
-              ><strong>DevOps is not my domain.</strong> I won't pretend
-              otherwise. I'll find you the right resource, not fake expertise I
-              don't have.</span
-            >
-          </div>
-          <div class="limit-row">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-              />
-              <line x1="1" y1="1" x2="23" y2="23" />
-            </svg>
-            <span
-              ><strong>I can't read your mind.</strong> If you need a break,
-              tell me. I'll nearly always say yes. I might not notice if you
-              don't say anything.</span
-            >
-          </div>
-          <div class="limit-row">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            <span
-              ><strong>I won't be as involved in the code as you.</strong>
-              Management requires time handling non-technical stuff. I'll dive
-              deep and pair with you when you ask for it and time allows, but
-              I'll defer to your expertise on code-related issues.</span
-            >
-          </div>
-        </div>
-      </div>
-
-      <hr />
-
-      <!-- Favorite management videos -->
-      <div class="section">
-        <p class="section-label">Favorite management talks</p>
-        <div class="comm-grid">
-          <a
-            class="comm-card"
-            href="https://www.youtube.com/watch?v=099cHWSbAL8"
-            target="_blank"
-            rel="noopener"
-            style="display: block; text-decoration: none; color: inherit"
-          >
-            <p class="comm-eyebrow">Nickolas Means</p>
-            <p class="comm-title">How to Crash an Airplane</p>
-            <p class="comm-desc">
-              My favorite talk on management — what a near-disaster mid-flight
-              teaches about trust, delegation, and staying calm under pressure.
-            </p>
-          </a>
-          <a
-            class="comm-card"
-            href="https://www.youtube.com/watch?v=pL3Yzjk5R4M"
-            target="_blank"
-            rel="noopener"
-            style="display: block; text-decoration: none; color: inherit"
-          >
-            <p class="comm-eyebrow">Nickolas Means</p>
-            <p class="comm-title">The Original Skunk Works</p>
-            <p class="comm-desc">
-              Also great, from the same speaker — how Lockheed's legendary team
-              built breakthrough work by getting out of their own way.
-            </p>
-          </a>
-        </div>
-      </div>
-
-      <div class="footer">Questions before we meet? Reach out any time.</div>
-    </div>
-  </body>
+    </body>
 </html>
