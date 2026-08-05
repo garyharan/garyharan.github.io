@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>What I expect from my team</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=DM+Serif+Display&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                --bg: #f7f6f2;
+                --surface: #ffffff;
+                --surface-muted: #f0eee9;
+                --text-primary: #1a1916;
+                --text-secondary: #6b6860;
+                --text-tertiary: #a09d97;
+                --border: rgba(26, 25, 22, 0.1);
+                --border-strong: rgba(26, 25, 22, 0.18);
+                --accent: #2a4d3e;
+                --accent-light: #e8f0ec;
+                --font-display: "DM Serif Display", Georgia, serif;
+                --font-body: "Inter", system-ui, sans-serif;
+            }
+
+            body {
+                background: var(--bg);
+                color: var(--text-primary);
+                font-family: var(--font-body);
+                font-size: 15px;
+                line-height: 1.6;
+                min-height: 100vh;
+                padding: 3rem 1.5rem 5rem;
+            }
+
+            .page {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+
+            /* Back link */
+            .backlink {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                color: var(--text-tertiary);
+                text-decoration: none;
+                margin-bottom: 2rem;
+            }
+
+            .backlink:hover {
+                color: var(--accent);
+            }
+
+            /* Hero */
+            .hero {
+                padding-bottom: 2.5rem;
+                border-bottom: 0.5px solid var(--border-strong);
+                margin-bottom: 2.5rem;
+            }
+
+            .hero-eyebrow {
+                font-size: 11px;
+                font-weight: 500;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--text-tertiary);
+                margin-bottom: 0.75rem;
+            }
+
+            .hero h1 {
+                font-family: var(--font-display);
+                font-size: clamp(38px, 6vw, 56px);
+                font-weight: 400;
+                line-height: 1.1;
+                color: var(--text-primary);
+                margin-bottom: 1rem;
+            }
+
+            .hero h1 em {
+                font-style: italic;
+                color: var(--accent);
+            }
+
+            .hero-sub {
+                font-size: 15px;
+                color: var(--text-secondary);
+                max-width: 480px;
+                line-height: 1.65;
+            }
+
+            /* Section */
+            .section {
+                margin-bottom: 2.75rem;
+            }
+
+            .section-label {
+                font-size: 10px;
+                font-weight: 500;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--text-tertiary);
+                margin-bottom: 1rem;
+            }
+
+            .section h2 {
+                font-family: var(--font-display);
+                font-size: 28px;
+                font-weight: 400;
+                line-height: 1.2;
+                margin-bottom: 0.75rem;
+            }
+
+            .section p + p {
+                margin-top: 0.85rem;
+            }
+
+            .body-text {
+                font-size: 14px;
+                color: var(--text-secondary);
+                line-height: 1.7;
+            }
+
+            .body-text strong {
+                color: var(--text-primary);
+                font-weight: 500;
+            }
+
+            /* Principle cards */
+            .principle {
+                display: flex;
+                gap: 1rem;
+                align-items: flex-start;
+                padding: 1rem 0;
+                border-bottom: 0.5px solid var(--border);
+            }
+
+            .principle:first-child {
+                border-top: 0.5px solid var(--border);
+            }
+
+            .principle-icon {
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+                background: var(--accent-light);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                margin-top: 2px;
+            }
+
+            .principle-icon svg {
+                width: 16px;
+                height: 16px;
+                stroke: var(--accent);
+                fill: none;
+                stroke-width: 1.75;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            .principle-title {
+                font-size: 14px;
+                font-weight: 500;
+                color: var(--text-primary);
+                margin-bottom: 3px;
+            }
+
+            .principle-desc {
+                font-size: 13px;
+                color: var(--text-secondary);
+                line-height: 1.6;
+            }
+
+            /* Template card */
+            .template {
+                background: var(--surface);
+                border: 0.5px solid var(--border);
+                border-radius: 10px;
+                padding: 1.25rem 1.5rem;
+                margin-top: 1.25rem;
+            }
+
+            .template-label {
+                font-size: 10px;
+                font-weight: 500;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--accent);
+                margin-bottom: 0.85rem;
+            }
+
+            .template dl {
+                display: grid;
+                gap: 0.85rem;
+            }
+
+            .template dt {
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--text-primary);
+                margin-bottom: 2px;
+            }
+
+            .template dd {
+                font-size: 13px;
+                color: var(--text-secondary);
+                line-height: 1.55;
+            }
+
+            .template-note {
+                margin-top: 1rem;
+                padding-top: 0.85rem;
+                border-top: 0.5px solid var(--border);
+                font-size: 12px;
+                color: var(--text-tertiary);
+                line-height: 1.55;
+            }
+
+            /* Contrast grid */
+            .contrast {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                margin-top: 1.25rem;
+            }
+
+            @media (max-width: 500px) {
+                .contrast {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .contrast-card {
+                background: var(--surface);
+                border: 0.5px solid var(--border);
+                border-radius: 10px;
+                padding: 1.1rem 1.25rem;
+            }
+
+            .contrast-card.muted {
+                background: var(--surface-muted);
+                border-color: transparent;
+            }
+
+            .contrast-eyebrow {
+                font-size: 10px;
+                font-weight: 500;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--accent);
+                margin-bottom: 0.7rem;
+            }
+
+            .contrast-card.muted .contrast-eyebrow {
+                color: var(--text-tertiary);
+            }
+
+            .contrast-card ul {
+                list-style: none;
+                display: grid;
+                gap: 0.55rem;
+            }
+
+            .contrast-card li {
+                font-size: 13px;
+                color: var(--text-secondary);
+                line-height: 1.5;
+                padding-left: 1rem;
+                position: relative;
+            }
+
+            .contrast-card li::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 8px;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: var(--accent);
+            }
+
+            .contrast-card.muted li::before {
+                background: var(--text-tertiary);
+            }
+
+            /* Quote */
+            blockquote {
+                border-left: 2px solid var(--accent);
+                padding: 0.25rem 0 0.25rem 1.25rem;
+                margin: 1.25rem 0;
+            }
+
+            blockquote p {
+                font-family: var(--font-display);
+                font-size: 19px;
+                line-height: 1.45;
+                color: var(--text-primary);
+            }
+
+            blockquote cite {
+                display: block;
+                margin-top: 0.6rem;
+                font-family: var(--font-body);
+                font-size: 12px;
+                font-style: normal;
+                color: var(--text-tertiary);
+            }
+
+            /* Divider */
+            hr {
+                border: none;
+                border-top: 0.5px solid var(--border-strong);
+                margin: 2.5rem 0;
+            }
+
+            /* Footer */
+            .footer {
+                margin-top: 3rem;
+                padding-top: 1.5rem;
+                border-top: 0.5px solid var(--border);
+                font-size: 12px;
+                color: var(--text-tertiary);
+            }
+
+            .footer a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+
+            .footer a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <a class="backlink" href="working-with-gary.html"
+                >&larr; Working with me</a
+            >
+
+            <div class="hero">
+                <p class="hero-eyebrow">What I expect</p>
+                <h1>Three things I ask of <em>everyone</em></h1>
+                <p class="hero-sub">
+                    Everything else is negotiable. These three are how I keep
+                    you visible, keep you growing, and keep problems from
+                    getting expensive.
+                </p>
+            </div>
+
+            <!-- Journal -->
+            <div class="section">
+                <p class="section-label">Expectation 01</p>
+                <h2>Keep a weekly journal</h2>
+                <p class="body-text">
+                    Once a week, write a short entry: <strong>what you
+                    learned</strong> and <strong>what you accomplished</strong>.
+                    That's it. It takes ten minutes and it doesn't need to be
+                    polished.
+                </p>
+                <p class="body-text">
+                    I ask for this because I want you to be able to advocate for
+                    yourself. Nobody remembers March in November — not you, and
+                    not me. When promotion season comes around, the person with
+                    a written record of their impact walks in with evidence
+                    while everyone else walks in with vibes.
+                </p>
+                <p class="body-text">
+                    It also keeps us aligned. If I'm reading your journal, I'm
+                    never surprised by what you think your best work was, and
+                    you're never surprised by what I'm going to say about you in
+                    a room you're not in. When I make your case, I want to be
+                    making <em>your</em> case — not my reconstruction of it.
+                </p>
+
+                <div class="template">
+                    <p class="template-label">A good entry answers</p>
+                    <dl>
+                        <div>
+                            <dt>What did I ship or move forward?</dt>
+                            <dd>
+                                The outcome, not the activity. "Cut checkout
+                                latency by 40%" beats "worked on checkout."
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>What did I learn?</dt>
+                            <dd>
+                                A technique, a part of the system, a mistake
+                                that taught you something. Learning counts even
+                                when nothing shipped.
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>What's in my way?</dt>
+                            <dd>
+                                Blockers, friction, things that felt harder than
+                                they should have. This is where I can help.
+                            </dd>
+                        </div>
+                    </dl>
+                    <p class="template-note">
+                        Keep it wherever you like — a doc, a repo, a notebook.
+                        The habit matters more than the tool. Three bullets a
+                        week is plenty.
+                    </p>
+                </div>
+            </div>
+
+            <hr />
+
+            <!-- Growth mindset -->
+            <div class="section">
+                <p class="section-label">Expectation 02</p>
+                <h2>Bring a growth mindset</h2>
+                <p class="body-text">
+                    I need you to believe you can get better, and then act like
+                    it. Not as a slogan — as a working method. Skill is built,
+                    not issued at birth, and the people I've seen go furthest
+                    are the ones who treated every week as a deposit.
+                </p>
+                <p class="body-text">
+                    Three things I look for:
+                </p>
+
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                            <polyline points="17 6 23 6 23 12" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="principle-title">
+                            You understand compounding
+                        </p>
+                        <p class="principle-desc">
+                            A 1% improvement that sticks beats a heroic sprint
+                            that doesn't. Small, repeated investments — in your
+                            skills, in the codebase, in the team's habits —
+                            produce returns that look impossible from the
+                            outside. The catch is that compounding only pays if
+                            you stay in the game long enough to let it work.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="principle-title">
+                            You reduce friction instead of tolerating it
+                        </p>
+                        <p class="principle-desc">
+                            If a process is painful, a setup step is undocumented,
+                            or the same question gets asked three times, fix it.
+                            Friction in process and friction in knowledge are the
+                            two taxes teams pay without noticing. Paying down a
+                            little of that every week is some of the highest
+                            leverage work you'll ever do — and I'll count it as
+                            real work, because it is.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="6" />
+                            <circle cx="12" cy="12" r="2" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="principle-title">
+                            You're deliberate about getting better
+                        </p>
+                        <p class="principle-desc">
+                            Know what you're currently bad at and be working on
+                            it on purpose. Ask for the code review you're
+                            dreading. Take the project slightly above your
+                            level. Feedback is data, not a verdict — and I'll
+                            give it to you straight because I think you can use
+                            it.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contrast">
+                    <div class="contrast-card">
+                        <p class="contrast-eyebrow">What I love to hear</p>
+                        <ul>
+                            <li>"I don't know that yet — I'll go learn it."</li>
+                            <li>
+                                "That review stung, and it was right. Here's
+                                what I changed."
+                            </li>
+                            <li>
+                                "This step wasted an hour of everyone's week, so
+                                I automated it."
+                            </li>
+                            <li>
+                                "I want to be better at design docs. Can I own
+                                the next one?"
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contrast-card muted">
+                        <p class="contrast-eyebrow">What I can't stand</p>
+                        <ul>
+                            <li>"I'm just not a frontend person."</li>
+                            <li>"That's how we've always done it."</li>
+                            <li>"That's not my job."</li>
+                            <li>
+                                "It's fine, everyone knows to work around that."
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <!-- Communication -->
+            <div class="section">
+                <p class="section-label">Expectation 03</p>
+                <h2>Tell me when things go wrong</h2>
+                <p class="body-text">
+                    I can't help with what I don't know about. A problem I hear
+                    about on Monday is a conversation. The same problem on
+                    Friday is a fire, and by then my options have narrowed to
+                    the expensive ones.
+                </p>
+                <p class="body-text">
+                    So bring me bad news early, and bring it plainly. You will
+                    never be punished for the telling. I don't need you to have
+                    a solution ready, and I don't need it packaged — "I think
+                    I've broken something and I'm not sure how bad it is" is a
+                    perfectly good opening line.
+                </p>
+
+                <blockquote>
+                    <p>
+                        Why would I fire him? I just spent a fortune training
+                        him.
+                    </p>
+                    <cite>
+                        — the answer Henry Ford is said to have given when asked
+                        about an employee whose mistake cost the company dearly
+                    </cite>
+                </blockquote>
+
+                <p class="body-text">
+                    That's genuinely how I see mistakes: as tuition already
+                    paid. But the lesson only gets purchased if the error is
+                    <strong>named out loud</strong>. A mistake that's hidden
+                    costs us the money and teaches us nothing — we just get to
+                    pay for it again later. The boldness in addressing it is the
+                    whole mechanism.
+                </p>
+
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+                            />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="principle-title">Escalate early, not neatly</p>
+                        <p class="principle-desc">
+                            Raise it while it's still small and still ugly. I'd
+                            much rather get five false alarms than miss the one
+                            that mattered.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="principle-title">
+                            No surprises in either direction
+                        </p>
+                        <p class="principle-desc">
+                            If a date is slipping, say so when you first suspect
+                            it — not on the deadline. I'll do the same for you:
+                            you'll hear about things that affect you from me,
+                            early, and not through the grapevine.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="principle">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="principle-title">
+                            We fix the system, not the person
+                        </p>
+                        <p class="principle-desc">
+                            When something breaks, my first question is what let
+                            it break, not who touched it last. Blameless doesn't
+                            mean consequence-free — it means the consequence is
+                            a better system, and a lesson we all get to keep.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="section">
+                <p class="section-label">In short</p>
+                <p class="body-text">
+                    <strong>Write it down</strong> so I can advocate for you with
+                    facts. <strong>Get better on purpose</strong> so the writing
+                    keeps getting more impressive. <strong>Tell me early</strong>
+                    so I can actually help. Do those three and I'll handle a lot
+                    of the rest.
+                </p>
+            </div>
+
+            <div class="footer">
+                More context on how I operate:
+                <a href="working-with-gary.html">Working with me</a>. Questions
+                before we meet? Reach out any time.
+            </div>
+        </div>
+    </body>
+</html>
